@@ -1,1 +1,18 @@
 @import "tailwindcss";
+
+@layer utilities {
+  /* Hides the scrollbar but keeps functionality */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #CAD2C5;
+}
