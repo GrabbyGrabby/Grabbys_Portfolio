@@ -11,7 +11,6 @@ export default function App() {
   // Initialize lenis smooth scrolling globally
   useSmoothScroll();
 
-  // Fetches GitHub stats silently in the background
 
   return (
     <div
@@ -20,7 +19,7 @@ export default function App() {
     >
       <Navigation />
 
-      <main className="pt-32 px-6 max-w-6xl mx-auto space-y-40">
+      <main className="pt-32 px-2 max-w-6xl mx-auto space-y-40">
         <Hero />
         <Skills />
         <Work />

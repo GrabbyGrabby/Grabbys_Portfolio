@@ -12,15 +12,14 @@ export default function LiquidOrb() {
 
   return (
     <Sphere ref={orbRef} args={[1, 32, 32]} scale={1.4}>
-      <MeshDistortMaterial
-        color="#E0FFFF"
-        emissive="#008B8B"
-        emissiveIntensity={0.6}
-        distort={0.4}
-        speed={4}
-        roughness={0.2}
-        metalness={0.6}
-      />
+ <MeshDistortMaterial
+         color="#355c55"
+         attach="material"
+         distort={0.4}
+         speed={2}
+         roughness={0.2}
+         metalness={0.5}
+       />
     </Sphere>
   );
 }

@@ -19,7 +19,7 @@ export const projects = [
   {
     title: "Spotify Clone",
     year: "2023",
-    stack: ["React", "Framer Motion"],
+    stack: ["React", "Tailwind"],
     desc: "A high-fidelity minimalist replica of the Spotify web interface.",
     link: "https://spotify-clone-by-grabby.vercel.app",
     repo: "https://github.com/GrabbyGrabby/Spotify-Clone-",
@@ -27,7 +27,7 @@ export const projects = [
   {
     title: "Demo PMS",
     year: "2024",
-    stack: ["Three.js", "WebGL"],
+    stack: ["React", "Tailwind", "Next.js"],
     desc: "Interactive spatial computing environment and dashboard concept.",
     link: "https://demopms-grabby.vercel.app",
     repo: "https://github.com/GrabbyGrabby/Hotel-PMS-Demo",

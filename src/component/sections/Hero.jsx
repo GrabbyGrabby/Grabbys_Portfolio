@@ -9,7 +9,7 @@ import { staggerContainer, fadeInUp } from "../../utils/animation";
 export default function Hero() {
   return (
     <section className="relative flex flex-col justify-center min-h-[85vh]">
-      <div className="absolute inset-0 z-0 pointer-events-auto flex items-center justify-center md:justify-end opacity-60 md:opacity-100">
+      <div className="absolute inset-0 z-0 pointer-events-auto flex items-center justify-center md:justify-end ">
         <div className="w-[75vw] h-[75vw] md:w-[350px] md:h-[350px] lg:w-[450px] lg:h-[450px]">
           <Scene />
         </div>
@@ -25,7 +25,7 @@ export default function Hero() {
 
         <motion.h1
           variants={fadeInUp}
-          className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.05] text-[#1A1C1E] block w-full text-left bg-white/20 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none rounded-2xl p-2 md:p-0 -ml-2 md:ml-0"
+          className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.05] text-[#1A1C1E] block w-full text-left bg-white/20 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none rounded-2xl p-2 md:p-0"
         >
           SHIVAJI <br />
           <span className="text-[#1A1C1E]">JADHAV.</span>
@@ -33,7 +33,7 @@ export default function Hero() {
         
         <motion.p
           variants={fadeInUp}
-          className="text-lg md:text-xl text-[#1A1C1E]/80 max-w-md leading-relaxed font-light backdrop-blur-md bg-white/40 p-4 rounded-xl border border-white/50 shadow-sm"
+          className="text-lg md:text-xl text-[#1A1C1E]/80 w-full leading-relaxed font-light backdrop-blur-md bg-white/40 p-4 rounded-xl border border-white/50 shadow-sm"
         >
           Aspiring Web Developer combining technical precision with creative
           flair using React, Tailwind, Next.js, and Three.js.

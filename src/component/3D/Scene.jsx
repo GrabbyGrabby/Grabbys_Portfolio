@@ -1,9 +1,24 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { MeshDistortMaterial, Sphere, Environment } from '@react-three/drei';
 
 const AnimatedSphere = () => {
   const sphereRef = useRef();
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Listen for window resize to determine if we are on a mobile screen
+  useEffect(() => {
+    const handleResize = () => {
+      // 768px matches Tailwind's 'md' breakpoint
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Check initial size on mount
+    handleResize(); 
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Rotate the sphere continuously
   useFrame(({ clock }) => {
@@ -11,11 +26,14 @@ const AnimatedSphere = () => {
     sphereRef.current.rotation.x = clock.getElapsedTime() * 0.1;
   });
 
+  // Push to the right edge (2.5) on mobile, shift slightly right (1.5) on desktop
+  // Note: If you want it on the left edge instead, use -2.5
+  const xPosition = isMobile ? 2.5 : 1.5;
+
   return (
-    // Shifted slightly to the right (x: 1.5) so it balances the left-aligned text
-    <Sphere ref={sphereRef} args={[1, 64, 64]} scale={2.5} position={[1.5, 0, 0]}>
+    <Sphere ref={sphereRef} args={[1, 64, 64]} scale={2.5} position={[xPosition, 0, 0]}>
       <MeshDistortMaterial
-        color="#A2C3A4"
+        color="#869b97"
         attach="material"
         distort={0.4}
         speed={2}
@@ -28,10 +46,8 @@ const AnimatedSphere = () => {
 
 export default function Scene() {
   return (
-    // absolute inset-0 makes it fill whatever container it is placed in perfectly
-    <div className="absolute inset-0 w-full h-full">
+    <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
       <Canvas 
-        // Moved camera back to 7 so the larger sphere fits beautifully
         camera={{ position: [0, 0, 7], fov: 45 }} 
         className="outline-none focus:outline-none"
       >

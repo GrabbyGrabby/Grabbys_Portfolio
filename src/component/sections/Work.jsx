@@ -7,7 +7,7 @@ import {
   ExternalLinkIcon,
 } from "@radix-ui/react-icons";
 import { projects } from "../../constants/data";
-import { staggerContainer, fadeInUp } from "../../../src/utils/animation";
+import { staggerContainer, fadeInUp } from "../../utils/animation";
 import { motion } from "framer-motion";
 
 export default function Work() {
@@ -49,58 +49,66 @@ export default function Work() {
             <motion.div
               whileHover={{ y: -8, scale: 1.02 }}
               transition={{ type: "spring", stiffness: 400, damping: 25 }}
-              className="relative flex flex-col bg-[#FCE8E8] border border-[#FCE8E8] rounded-3xl p-3 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-all h-full"
+              /* Outer Card: Slate 800 */
+              className="relative flex flex-col bg-slate-800 border border-slate-700 rounded-3xl p-3 shadow-[0_4px_20px_rgba(0,0,0,0.1)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.25)] transition-all h-full"
             >
-              <div className="aspect-[4/3] bg-white rounded-2xl overflow-hidden mb-6 relative flex items-center justify-center">
+              {/* Inner Image Container: Slate 600 (Mist) */}
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden mb-6 relative flex items-center justify-center bg-slate-600">
                 <motion.div
                   className="absolute inset-0 flex items-center justify-center"
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.6, ease: "easeOut" }}
                 >
-                  <MixIcon className="w-20 h-20 text-[#1A1C1E] opacity-90 group-hover:opacity-100 transition-opacity duration-500 drop-shadow-sm" />
+                  <MixIcon className="w-20 h-20 text-white opacity-90 group-hover:opacity-100 transition-opacity duration-500 drop-shadow-sm" />
                 </motion.div>
-                <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                
+                <div className="absolute top-4 right-4 flex gap-2 z-10">
                   <a
                     href={project.repo}
                     target="_blank"
                     rel="noreferrer"
-                    className="bg-white/80 backdrop-blur-md shadow-sm p-3 rounded-full text-[#1A1C1E] hover:bg-white transition-colors"
+                    className="inline-flex items-center justify-center w-10 h-10 rounded-2xl bg-slate-800/80 backdrop-blur-sm text-white hover:bg-slate-900 transition-colors duration-300 shadow-inner"
                   >
-                    <GitHubLogoIcon className="w-4 h-4" />
+                    <GitHubLogoIcon className="w-5 h-5" />
                   </a>
                   <a
                     href={project.link}
                     target="_blank"
                     rel="noreferrer"
-                    className="bg-white/80 backdrop-blur-md shadow-sm p-3 rounded-full text-[#1A1C1E] hover:bg-white transition-colors"
+                    className="inline-flex items-center justify-center w-10 h-10 rounded-2xl bg-slate-800/80 backdrop-blur-sm text-white hover:bg-slate-900 transition-colors duration-300 shadow-inner"
                   >
-                    <ExternalLinkIcon className="w-4 h-4" />
+                    <ExternalLinkIcon className="w-5 h-5" />
                   </a>
                 </div>
               </div>
+              
               <div className="px-3 pb-3 space-y-3 flex-1 flex flex-col">
                 <div className="flex items-center justify-between">
-                  <h3 className="font-semibold text-xl text-[#1A1C1E] tracking-tight">
+                  {/* Text inverted to white for dark slate background */}
+                  <h3 className="font-semibold text-xl text-white tracking-tight">
                     {project.title}
                   </h3>
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-[#1A1C1E]/60 px-2 py-1 bg-white/60 rounded-md">
+                  {/* Badge matching the dark theme */}
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-white px-2 py-1 bg-slate-900 rounded-md">
                     {project.year}
                   </span>
                 </div>
-                <p className="text-sm text-[#1A1C1E]/70 font-light flex-1">
+                
+                <p className="text-sm text-white/80 font-light flex-1">
                   {project.desc}
                 </p>
+                
                 <div className="flex flex-wrap gap-2 pt-2">
                   {project.stack.map((tech) => (
                     <motion.span
                       key={tech}
                       whileHover={{
-                        backgroundColor: "#1A1C1E",
-                        color: "#ffffff",
-                        borderColor: "#1A1C1E",
+                        scale: 1.05,
+                        backgroundColor: "#ffffff",
+                        color: "#0f172a", // slate-900 text on hover
                       }}
-                      transition={{ duration: 0.2 }}
-                      className="text-[10px] font-medium tracking-wide bg-white/50 border border-white/80 px-3 py-1.5 rounded-full text-[#1A1C1E] cursor-default transition-colors"
+                      transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                      className="text-[10px] font-medium tracking-wide bg-slate-700 px-3 py-1.5 rounded-full text-white cursor-default transition-colors border border-transparent shadow-sm"
                     >
                       {tech}
                     </motion.span>
